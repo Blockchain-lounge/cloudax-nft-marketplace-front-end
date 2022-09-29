@@ -1,7 +1,7 @@
-import { useState } from "react";
+import StyleGuide from "./pages/style-guide";
 
 function App() {
-  return <div></div>;
+  return <StyleGuide />;
 }
 
 export default App;
