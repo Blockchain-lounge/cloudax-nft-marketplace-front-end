@@ -3,9 +3,9 @@ import InsightsIcon from "../../atoms/vectors/insights-icon";
 import LaunchPadIcon from "../../atoms/vectors/launch-pad-icon";
 import GamesIcon from "../../atoms/vectors/games-icon";
 import CreatorsIcon from "../../atoms/vectors/creator-icon";
-import IntroIcon from "../../atoms/vectors/intro-icon";
+import ProfileIcon from "../../atoms/vectors/profile-icon";
 import SupportIcon from "../../atoms/vectors/support-icon";
-import ResourcesIcon from "../../atoms/vectors/resources-icon";
+import CreateNftIcon from "../../atoms/vectors/create-nft-icon";
 import AsideDropDown from "../../atoms/aside-dropdown";
 import IOSIcon from "../../atoms/vectors/ios-icon";
 import DiscordIcon from "../../atoms/vectors/discord-icon";
@@ -63,23 +63,24 @@ const DashboardAside = () => {
       ],
     },
     {
-      label: "Intro to NFTs",
-      icon: <IntroIcon />,
+      label: "Profile",
+      icon: <ProfileIcon />,
+      subLinks: [
+        { label: "Popular collections" },
+        { label: "Drop calendar" },
+        { label: "Auctions" },
+      ],
+      // link: "",
+    },
+    {
+      label: "Create Nfts",
+      icon: <CreateNftIcon />,
       link: "",
     },
     {
       label: "Support",
       icon: <SupportIcon />,
       link: "",
-    },
-    {
-      label: "Resources",
-      icon: <ResourcesIcon />,
-      subLinks: [
-        { label: "Popular collections" },
-        { label: "Drop calendar" },
-        { label: "Auctions" },
-      ],
     },
   ];
 

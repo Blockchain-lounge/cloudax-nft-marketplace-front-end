@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "../../atoms/button";
 import InputField from "../../atoms/input";
 import CaretDown from "../../atoms/vectors/caret-down";
@@ -6,6 +7,7 @@ import NavTab from "../../molecules/nav-tab";
 import "./nav-bar.scss";
 
 const NavBar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const statusArr = [
     {
       title: "Volume 24h",
@@ -47,7 +49,18 @@ const NavBar = () => {
           <InputField />
           <NavTab />
         </div>
-        <Button title="Connect Wallet" prefix={<WalletIcon />} outline />
+        {isLoggedIn ? (
+          <div className="flex items-center gap-x-4">
+            <img
+              src="/images/Dreamy-ape.png"
+              alt="user-img"
+              className="h-12 w-12 rounded-full"
+            />
+            <WalletIcon />
+          </div>
+        ) : (
+          <Button title="Connect Wallet" prefix={<WalletIcon />} outline />
+        )}
       </div>
     </nav>
   );

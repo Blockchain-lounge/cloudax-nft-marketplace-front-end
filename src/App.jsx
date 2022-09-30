@@ -1,7 +1,8 @@
-import StyleGuide from "./pages/style-guide";
+import HomePage from "./pages/home-page";
+// import DashboardLayout from "./templates/dashboard-layout";
 
 function App() {
-  return <StyleGuide />;
+  return <HomePage />;
 }
 
 export default App;
