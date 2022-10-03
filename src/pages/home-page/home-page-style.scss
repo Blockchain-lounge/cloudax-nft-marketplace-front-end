@@ -1,5 +1,5 @@
 .home-wrapper {
-  @apply h-screen overflow-auto;
+  @apply h-screen overflow-auto pb-[9.375rem];
   .hero {
     @apply grid grid-cols-[0.5fr_1fr] items-center gap-x-[3.94rem];
     p {
@@ -13,6 +13,11 @@
       .hero-cards {
         @apply absolute bottom-[-2.2rem] right-[2.47125rem] flex gap-x-[1.25rem];
       }
+    }
+  }
+  .hero-section-1 {
+    .hero-section-1-collection {
+      @apply grid grid-cols-3 gap-y-[2.125rem] gap-x-[2.1875rem] mt-[3.625rem];
     }
   }
 }

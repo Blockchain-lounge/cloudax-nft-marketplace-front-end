@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const InsightsIcon = (props) => (
+const ActivityIcon = (props) => (
   <svg
     width={24}
     height={24}
@@ -9,22 +9,20 @@ const InsightsIcon = (props) => (
     {...props}
   >
     <path
-      d="M2 2v17c0 1.66 1.34 3 3 3h17"
+      d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z"
       stroke="#fff"
       strokeWidth={1.5}
-      strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="m5 17 4.59-5.36c.76-.88 2.11-.94 2.93-.11l.95.95c.82.82 2.17.77 2.93-.11L21 7"
+      d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72v-4.1"
       stroke="#fff"
       strokeWidth={1.5}
-      strokeMiterlimit={10}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
   </svg>
 );
 
-export default InsightsIcon;
+export default ActivityIcon;

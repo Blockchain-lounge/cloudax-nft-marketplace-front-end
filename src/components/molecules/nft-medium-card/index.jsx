@@ -25,7 +25,7 @@ const NftCard = ({ price, imgUrl, name, owner, status }) => {
           </span>
         )}
         <div className="nmc-wrapper-3">
-          <img src="../../../../public/collection/bayc-footer1.png" alt="" />
+          <img src="/collection/bayc-footer1.png" alt="" />
           <div className="nmc-wrapper-4">
             <div className="flex flex-col">
               <span className="name">{name}</span>

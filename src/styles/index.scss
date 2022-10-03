@@ -36,6 +36,11 @@ body,
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 *,
 *::before,
 *::after {

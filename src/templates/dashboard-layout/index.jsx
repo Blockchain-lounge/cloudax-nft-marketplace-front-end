@@ -1,8 +1,7 @@
-import clsx from "clsx";
 import NavBar from "../../components/organisms/nav-bar";
 import AsideBar from "../../components/molecules/aside";
 import "./layout-1.scss";
-const DashboardLayout = ({ flow, children }) => {
+const DashboardLayout = ({ children }) => {
   return (
     <div>
       <NavBar />
@@ -10,14 +9,7 @@ const DashboardLayout = ({ flow, children }) => {
         <aside className="aside">
           <AsideBar />
         </aside>
-        <div
-          className={clsx(
-            "h-screen mt-[0.8rem]",
-            flow ? "overflow-auto" : "overflow-hidden"
-          )}
-        >
-          {children}
-        </div>
+        <div className="aside-2">{children}</div>
       </div>
     </div>
   );
