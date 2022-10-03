@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Button from "../../atoms/button";
 import InputField from "../../atoms/input";
 import CaretDown from "../../atoms/vectors/caret-down";
 import WalletIcon from "../../atoms/vectors/wallet-icon";
+import MiniUserProfile from "../../molecules/mini-user-profile";
+import MiniUserWallet from "../../molecules/mini-user-wallet";
 import NavTab from "../../molecules/nav-tab";
 import "./nav-bar.scss";
 
 const NavBar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [showBal, setShowBal] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const statusArr = [
     {
       title: "Volume 24h",
@@ -26,6 +30,12 @@ const NavBar = () => {
       value: "3,009 TPS",
     },
   ];
+  const handleShowBal = useCallback(() => {
+    setShowBal((prevData) => !prevData);
+  }, []);
+  const handleShowProfile = useCallback(() => {
+    setShowProfile((prevData) => !prevData);
+  }, []);
   return (
     <nav>
       <div className="nav-status center">
@@ -50,13 +60,21 @@ const NavBar = () => {
           <NavTab />
         </div>
         {isLoggedIn ? (
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center gap-x-4 relative">
             <img
               src="/images/Dreamy-ape.png"
               alt="user-img"
               className="h-12 w-12 rounded-full"
+              onClick={handleShowProfile}
             />
-            <WalletIcon />
+            <div className="p-[12px]">
+              <WalletIcon onClick={handleShowBal} />
+            </div>
+            <MiniUserWallet showBal={showBal} onClick={handleShowBal} />
+            <MiniUserProfile
+              showProfile={showProfile}
+              onClick={handleShowProfile}
+            />
           </div>
         ) : (
           <Button title="Connect Wallet" prefix={<WalletIcon />} outline />
