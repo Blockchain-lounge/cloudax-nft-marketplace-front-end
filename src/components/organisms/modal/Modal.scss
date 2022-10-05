@@ -9,16 +9,16 @@
   @apply bg-bg-4;
 }
 .modal-wrap {
-  @apply absolute -top-[100vh] transition-all duration-200 flex justify-center z-30;
+  @apply absolute -top-[100vh] transition-[top] duration-300 flex justify-center z-30;
   &.open {
     @apply inset-0;
   }
   .modal-box {
-    @apply w-[48.125rem]  my-14 h-fit pb-7 rounded-[1.25rem];
+    @apply w-[48.125rem] mx-auto my-14 h-fit pb-7 rounded-[1.25rem];
     .modal-head {
       @apply flex justify-between items-center pt-7 px-10 mb-6;
     }
-    & > h1 {
+    .modal-head h1 {
       @apply text-white font-medium text-[1.75rem];
     }
   }

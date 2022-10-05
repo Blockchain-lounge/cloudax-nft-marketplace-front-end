@@ -120,7 +120,7 @@ const NavBar = () => {
               setActiveTab={setActiveTab}
             />
           ) : (
-            <DisplayWallet />
+            <DisplayWallet closeModal={setOpenModal} setStage={setStage} />
           )}
         </div>
       </Modal>
