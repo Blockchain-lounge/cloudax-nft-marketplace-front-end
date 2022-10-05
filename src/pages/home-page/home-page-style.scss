@@ -1,7 +1,7 @@
 .home-wrapper {
   @apply h-screen overflow-auto pb-[9.375rem];
   .hero {
-    @apply grid grid-cols-[0.5fr_1fr] items-center gap-x-[3.94rem];
+    @apply flex justify-between items-center gap-x-[3.94rem];
     p {
       @apply text-[1.125rem] text-[#E0EEFF] leading-[2.125rem] tracking-[0.03rem] mt-[1rem] mb-[2.375rem];
     }

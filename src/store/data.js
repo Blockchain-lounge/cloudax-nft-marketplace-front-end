@@ -1,13 +1,30 @@
 export const heroCards = [
   {
-    img: "/images/Dreamy-ape.png",
+    img: "/images/hero-dashboard.jpg",
+    title: "Ducks Vegas",
+    price: 4.68,
+    tag: "Featured Launch",
+    content:
+      "Become one of the 4,000 Ducks to gain access to the ultimate Play-and-Earn Metaverse. DucksVegas NFT becomes your digital identity, your profile picture, and your in-game character. Participate in a variety of games to climb leaderboards, level up, and most importantly - earn $QUACK. Otherwise, rent out your NFTs to receive a steady stream of passive income.",
+    cta: "Explore Collection",
+  },
+  {
+    img: "/images/ape.png",
     title: "Dreamy Ape",
     price: 4.68,
+    tag: "Featured Launch",
+    content:
+      "Become one of the 4,000 Ducks to gain access to the ultimate Play-and-Earn Metaverse. DucksVegas NFT becomes your digital identity, your profile picture, and your in-game character. Participate in a variety of games to climb leaderboards, level up, and most importantly - earn $QUACK. Otherwise, rent out your NFTs to receive a steady stream of passive income.",
+    cta: "Explore Collection",
   },
   {
     img: "/images/Living-of-the-art.png",
     title: "Living Of The Art",
     price: 2.89,
+    tag: "Featured Launch",
+    content:
+      "Become one of the 4,000 Ducks to gain access to the ultimate Play-and-Earn Metaverse. DucksVegas NFT becomes your digital identity, your profile picture, and your in-game character. Participate in a variety of games to climb leaderboards, level up, and most importantly - earn $QUACK. Otherwise, rent out your NFTs to receive a steady stream of passive income.",
+    cta: "Explore Collection",
   },
 ];
 

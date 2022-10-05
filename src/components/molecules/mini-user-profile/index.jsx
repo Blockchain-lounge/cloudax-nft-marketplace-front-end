@@ -8,7 +8,7 @@ import CreateCollectionIcon from "../../atoms/vectors/create-collection-icon";
 import NightModeIcon from "../../atoms/vectors/night-mode-icon";
 import SignOutIcon from "../../atoms/vectors/sign-out-icon";
 
-const MiniUserProfile = ({ showProfile, onClick }) => {
+const MiniUserProfile = ({ showProfile, onClick, handleSignOut }) => {
   const userMiniProfileLinks = [
     {
       link: "Profile",
@@ -60,7 +60,7 @@ const MiniUserProfile = ({ showProfile, onClick }) => {
         <SignOutIcon />
         <span
           className="mini-user-profile-link text-[#FB4E4E]"
-          onClick={onClick}
+          onClick={handleSignOut}
         >
           Sign out
         </span>

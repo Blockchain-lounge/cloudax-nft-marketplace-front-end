@@ -1,0 +1,9 @@
+.display-wallet-wrapper {
+  @apply w-full;
+  .display-wallet-section-1 {
+    @apply grid grid-cols-2;
+    .display-wallet-ext {
+      @apply bg-white p-7 rounded-tl-xl;
+    }
+  }
+}

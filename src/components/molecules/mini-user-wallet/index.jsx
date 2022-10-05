@@ -3,7 +3,7 @@ import Button from "../../atoms/button";
 import CoinBaseIcon from "../../atoms/vectors/coin-base-icon";
 import "./mini-user-wallet-style.scss";
 
-const MiniUserWallet = ({ showBal, onClick }) => {
+const MiniUserWallet = ({ showBal, handleSignOut }) => {
   return (
     <div
       className={clsx(
@@ -25,7 +25,7 @@ const MiniUserWallet = ({ showBal, onClick }) => {
         </div>
         <Button title="Add funds" twClasses="max-w-[14.5625rem]" />
       </div>
-      <span className="mini-wallet-disconnect" onClick={onClick}>
+      <span className="mini-wallet-disconnect" onClick={handleSignOut}>
         Disconnect wallet
       </span>
     </div>

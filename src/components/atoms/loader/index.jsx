@@ -4,9 +4,9 @@ const Loader = () => {
   return (
     <div className="loader-body">
       <div className="loader">
-        <spin className="loader-child"></spin>
-        <spin className="loader-child-2"></spin>
-        <spin className="loader-child-3"></spin>
+        <span className="loader-child"></span>
+        <span className="loader-child-2"></span>
+        <span className="loader-child-3"></span>
       </div>
     </div>
   );

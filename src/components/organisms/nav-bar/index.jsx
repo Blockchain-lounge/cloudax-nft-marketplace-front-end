@@ -1,17 +1,25 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Button from "../../atoms/button";
 import InputField from "../../atoms/input";
 import CaretDown from "../../atoms/vectors/caret-down";
 import WalletIcon from "../../atoms/vectors/wallet-icon";
+import ConnectWallet from "../../molecules/connect-wallet";
+import DisplayWallet from "../../molecules/display-wallet";
 import MiniUserProfile from "../../molecules/mini-user-profile";
 import MiniUserWallet from "../../molecules/mini-user-wallet";
 import NavTab from "../../molecules/nav-tab";
+import Modal from "../modal";
 import "./nav-bar.scss";
 
 const NavBar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [showBal, setShowBal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [showBal, setShowBal] = useState(false);
+
+  const [activeTab, setActiveTab] = useState(0);
+  const [stage, setStage] = useState(0);
+
   const statusArr = [
     {
       title: "Volume 24h",
@@ -30,12 +38,24 @@ const NavBar = () => {
       value: "3,009 TPS",
     },
   ];
-  const handleShowBal = useCallback(() => {
-    setShowBal((prevData) => !prevData);
-  }, []);
-  const handleShowProfile = useCallback(() => {
-    setShowProfile((prevData) => !prevData);
-  }, []);
+
+  const handleWalletConnect = () => {
+    setOpenModal(!openModal);
+    setIsLoggedIn(!isLoggedIn);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+    setShowProfile(false);
+    setShowBal(false);
+  };
+
+  const handleShowBal = () => {
+    setShowBal(!showBal);
+  };
+  const handleShowProfile = () => {
+    setShowProfile(!showProfile);
+  };
   return (
     <nav>
       <div className="nav-status center">
@@ -70,16 +90,40 @@ const NavBar = () => {
             <div className="p-[12px]">
               <WalletIcon onClick={handleShowBal} />
             </div>
-            <MiniUserWallet showBal={showBal} onClick={handleShowBal} />
+            <MiniUserWallet showBal={showBal} handleSignOut={handleLogin} />
             <MiniUserProfile
               showProfile={showProfile}
-              onClick={handleShowProfile}
+              handleSignOut={handleLogin}
             />
           </div>
         ) : (
-          <Button title="Connect Wallet" prefix={<WalletIcon />} outline />
+          <Button
+            title="Connect Wallet"
+            prefix={<WalletIcon />}
+            outline
+            onClick={handleWalletConnect}
+          />
         )}
       </div>
+      <Modal
+        openModal={openModal}
+        title="Connect a wallet to continue"
+        closeModal={setOpenModal}
+        active={stage > 0}
+      >
+        <div className="flex">
+          {stage === 0 ? (
+            <ConnectWallet
+              stage={stage}
+              setStage={setStage}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
+          ) : (
+            <DisplayWallet />
+          )}
+        </div>
+      </Modal>
     </nav>
   );
 };

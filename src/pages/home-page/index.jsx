@@ -16,7 +16,6 @@ import FeaturedIcon from "../../components/atoms/vectors/featured-icon";
 
 import Sliders from "../../components/molecules/nft-slider";
 import {
-  content,
   heroCards,
   nftDatas,
   nft2Datas,
@@ -24,8 +23,12 @@ import {
   nft4Datas,
 } from "../../store/data";
 import Loader from "../../components/atoms/loader";
+import { useState } from "react";
 
 const HomePage = () => {
+  const [heroData, setHeroData] = useState(heroCards);
+  const [activeCard, setActiveCard] = useState(heroData[0]);
+
   return (
     <HideUntilLoaded
       animationIn="bounce"
@@ -37,17 +40,31 @@ const HomePage = () => {
           <div className="space-y-[9rem] center mb-[10.125rem]">
             <section className="hero">
               <div>
-                <Tag tag="Featured Launch" icon={<FeaturedIcon />} />
-                <Heading title="Ducks Vegas" twClasses="mt-4" />
-                <p>{content}</p>
-                <Button title="Explore Collection" />
+                <Tag tag={activeCard?.tag} icon={<FeaturedIcon />} />
+                <Heading title={activeCard.title} twClasses="mt-4" />
+                <p className="max-w-xl">{activeCard.content}</p>
+                <Button title={activeCard.cta} />
               </div>
               <div className="hero-img">
-                <img src="/images/hero-dashboard.jpg" alt="hero-img" />
+                <div className="h-[44.5625rem] max-w-[54.73rem] flex">
+                  <img
+                    src={activeCard.img}
+                    alt={activeCard.title + "-img"}
+                    className="object-cover flex-1"
+                  />
+                </div>
                 <div className="hero-cards">
-                  {heroCards.map((data) => (
-                    <HeroCard key={data.title} {...data} />
-                  ))}
+                  {heroData
+                    .filter((d, i) => d.title !== activeCard.title)
+                    .map((data, i) => (
+                      <HeroCard
+                        key={data.title}
+                        {...data}
+                        onClick={() => {
+                          setActiveCard(data);
+                        }}
+                      />
+                    ))}
                 </div>
                 <HeroIndicator />
               </div>

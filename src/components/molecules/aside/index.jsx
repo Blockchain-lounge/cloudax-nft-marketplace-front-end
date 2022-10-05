@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import CollectionIcon from "../../atoms/vectors/collections-icon";
 import ExploreIcon from "../../atoms/vectors/explore-icon";
 import TrendingIcon from "../../atoms/vectors/trending-icon";
@@ -14,6 +15,8 @@ import InstagramIcon from "../../atoms/vectors/instagram-icon";
 import "./aside-style.scss";
 
 const DashboardAside = () => {
+  const [isActiveIndex, setActiveIndex] = useState(null);
+
   const asideLinks = [
     {
       label: "Collections",
@@ -43,6 +46,7 @@ const DashboardAside = () => {
       label: "Cloudax Games",
       icon: <GamesIcon />,
       link: "",
+      tag: "coming",
     },
 
     {
@@ -64,13 +68,18 @@ const DashboardAside = () => {
   return (
     <div className="aside-container">
       <div>
-        {asideLinks.map((value) => (
+        {asideLinks.map((value, i) => (
           <AsideDropDown
             key={value.label}
             icon={value.icon}
             label={value.label}
             subLinks={value.subLinks}
             link={value.link}
+            tag={value.tag}
+            index={i}
+            activeIndex={isActiveIndex}
+            isActive={isActiveIndex === i}
+            handleActive={setActiveIndex}
           />
         ))}
       </div>
